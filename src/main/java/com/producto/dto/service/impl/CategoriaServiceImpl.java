@@ -1,5 +1,8 @@
 package com.producto.dto.service.impl;
 
+import com.producto.dto.dto.Mapper.ModelMapperInterface;
+import com.producto.dto.dto.requestDto.CategoriaRequestDto;
+import com.producto.dto.dto.responseDto.CategoriaResponseDto;
 import com.producto.dto.entity.Categoria;
 import com.producto.dto.repository.CategoriaRepository;
 import com.producto.dto.service.service.CategoriaService;
@@ -12,31 +15,19 @@ import org.springframework.stereotype.Service;
 public class CategoriaServiceImpl implements CategoriaService {
 
     @Autowired
+    private ModelMapperInterface mm;
+    @Autowired
     CategoriaRepository repository;
 
     @Override
-    public ResponseEntity<Categoria> listarCategorias() {
-        return null;
+    public ResponseEntity<CategoriaResponseDto> verCategoria(Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(mm.categoriACategoriaResDtoa(repository.findById(id).get()));
     }
 
     @Override
-    public ResponseEntity<Categoria> verCategoria(Integer id) {
-        return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id).get());
-    }
-
-    @Override
-    public ResponseEntity<String> crearCategoria(Categoria categoria) {
-        repository.save(categoria);
+    public ResponseEntity<String> crearCategoria(CategoriaRequestDto categoriaRequestDto) {
+        repository.save(mm.categoriaReqDtoACategoria(categoriaRequestDto));
         return ResponseEntity.status(HttpStatus.CREATED).body("categoria creada");
     }
 
-    @Override
-    public ResponseEntity<String> modificarCategoria(Categoria categoria, Integer id) {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<String> eliminarCategoria(Integer id) {
-        return null;
-    }
 }

@@ -1,13 +1,13 @@
 package com.producto.dto.service.service;
 
+import com.producto.dto.dto.requestDto.CategoriaRequestDto;
+import com.producto.dto.dto.responseDto.CategoriaResponseDto;
 import com.producto.dto.entity.Categoria;
 import org.springframework.http.ResponseEntity;
 
 public interface CategoriaService {
 
-    ResponseEntity<Categoria> listarCategorias();
-    ResponseEntity<Categoria> verCategoria(Integer id);
-    ResponseEntity<String> crearCategoria(Categoria categoria);
-    ResponseEntity<String> modificarCategoria(Categoria categoria ,Integer id);
-    ResponseEntity<String> eliminarCategoria(Integer id);
+    ResponseEntity<CategoriaResponseDto> verCategoria(Integer id);
+    ResponseEntity<String> crearCategoria(CategoriaRequestDto categoriaRequestDto);
+
 }
