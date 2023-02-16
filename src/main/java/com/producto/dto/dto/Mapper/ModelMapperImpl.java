@@ -10,27 +10,28 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ModelMapperImpl implements ModelMapperInterface{
-    private ModelMapper mm;
+public class ModelMapperImpl implements ModelMapperInterface {
+
+    private ModelMapper mm = new ModelMapper();
 
 
     @Override
     public Producto productoReqDtoAProducto(ProductoRequestDto productoRequestDto) {
-        return mm.map(productoRequestDto,Producto.class);
+        return mm.map(productoRequestDto, Producto.class);
     }
 
     @Override
     public ProductoResponseDto productoAProductoResDto(Producto producto) {
-       return mm.map(producto,ProductoResponseDto.class);
+        return mm.map(producto, ProductoResponseDto.class);
     }
 
     @Override
     public Categoria categoriaReqDtoACategoria(CategoriaRequestDto categoriaRequestDto) {
-        return mm.map(categoriaRequestDto,Categoria.class);
+        return mm.map(categoriaRequestDto, Categoria.class);
     }
 
     @Override
     public CategoriaResponseDto categoriACategoriaResDtoa(Categoria categoria) {
-        return mm.map(categoria,CategoriaResponseDto.class);
+        return mm.map(categoria, CategoriaResponseDto.class);
     }
 }

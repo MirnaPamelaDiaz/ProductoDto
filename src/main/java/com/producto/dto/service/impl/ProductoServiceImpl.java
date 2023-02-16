@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
 public class ProductoServiceImpl implements ProductoService {
 
     @Autowired
-    ProductoRepository repository;
+    private ProductoRepository repository;
     @Autowired
-    CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
     @Autowired
     private ModelMapperInterface mm;
 
@@ -35,12 +35,13 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public ResponseEntity<String> crearProducto(ProductoRequestDto productoRequestDto) {
-       /*
-        Categoria categoria = categoriaRepository.save(producto.getCategoria());
-        producto.setCategoria(categoria);
-        repository.save(producto);
-        return ResponseEntity.status(HttpStatus.CREATED).body("producto creado");*/
-        return null;
+
+        Categoria categoria = categoriaRepository.findByNombre(productoRequestDto.getCategoria().getNombre());
+        Producto p = mm.productoReqDtoAProducto(productoRequestDto);
+        p.setCategoria(categoria);
+        repository.save(p);
+        return ResponseEntity.status(HttpStatus.CREATED).body("producto creado");
+
     }
 
 }

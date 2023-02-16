@@ -17,17 +17,28 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Autowired
     private ModelMapperInterface mm;
     @Autowired
-    CategoriaRepository repository;
+    private CategoriaRepository repository;
 
     @Override
     public ResponseEntity<CategoriaResponseDto> verCategoria(Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(mm.categoriACategoriaResDtoa(repository.findById(id).get()));
     }
-
+//TODO pendiente de revision para que la categoria puede traer una lista de productos al ser consultada
     @Override
     public ResponseEntity<String> crearCategoria(CategoriaRequestDto categoriaRequestDto) {
         repository.save(mm.categoriaReqDtoACategoria(categoriaRequestDto));
         return ResponseEntity.status(HttpStatus.CREATED).body("categoria creada");
+    }
+
+    @Override
+    public Categoria buscarCategoriaPorId(Integer id) {
+        return repository.findById(id).get();
+    }
+
+    @Override
+    public Categoria buscarCategoriaPorNombre(String nombre) {
+        return repository.findByNombre(nombre);
+
     }
 
 }

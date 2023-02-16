@@ -8,6 +8,11 @@ import org.springframework.http.ResponseEntity;
 public interface CategoriaService {
 
     ResponseEntity<CategoriaResponseDto> verCategoria(Integer id);
+
     ResponseEntity<String> crearCategoria(CategoriaRequestDto categoriaRequestDto);
+
+    Categoria buscarCategoriaPorId(Integer id);
+
+    Categoria buscarCategoriaPorNombre(String nombre);
 
 }

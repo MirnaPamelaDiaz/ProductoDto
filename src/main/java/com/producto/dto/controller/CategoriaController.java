@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class CategoriaController {
 
     @Autowired
-    CategoriaService categoriaService;
+    private CategoriaService categoriaService;
 
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaResponseDto> verCategoria(@PathVariable("id") Integer id) {

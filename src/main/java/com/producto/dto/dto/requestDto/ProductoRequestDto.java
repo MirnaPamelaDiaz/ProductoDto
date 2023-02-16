@@ -13,5 +13,5 @@ public class ProductoRequestDto {
 
     private String descripcion;
 
-    private CategoriaRequestDto categoriaRequestDto;
+    private CategoriaRequestDto categoria;
 }

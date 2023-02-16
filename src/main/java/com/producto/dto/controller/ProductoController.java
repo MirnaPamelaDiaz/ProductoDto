@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/productos")
 public class ProductoController {
     @Autowired
-    ProductoService productoService;
+    private ProductoService productoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductoResponseDto> verProducto(@PathVariable("id") Integer id) {

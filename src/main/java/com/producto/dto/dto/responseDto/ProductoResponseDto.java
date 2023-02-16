@@ -7,7 +7,7 @@ public class ProductoResponseDto {
 
     private Integer id;
 
-    private  String nombre;
+    private String nombre;
 
     private Integer cantidad;
 

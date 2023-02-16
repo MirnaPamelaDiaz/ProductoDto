@@ -12,5 +12,5 @@ public class CategoriaResponseDto {
 
     private String nombre;
 
-    private List<ProductoRequestDto> listaProductos = new ArrayList();
+    //private List<ProductoRequestDto> listaProductos = new ArrayList();
 }

@@ -6,7 +6,6 @@ import com.producto.dto.dto.responseDto.CategoriaResponseDto;
 import com.producto.dto.dto.responseDto.ProductoResponseDto;
 import com.producto.dto.entity.Categoria;
 import com.producto.dto.entity.Producto;
-import org.springframework.stereotype.Component;
 
 
 public interface ModelMapperInterface {

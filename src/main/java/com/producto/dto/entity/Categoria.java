@@ -18,8 +18,10 @@ import java.util.List;
 @SQLDelete(sql = "UPDATE categoria SET alta=false WHERE id = ?")
 @Where(clause = "alta = true")
 public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //TODO ver si el @Column(name = "id_categoria") afecta a la relacion en la BBD
     // @Column(name = "id_categoria")
     private Integer id;
 
@@ -27,6 +29,6 @@ public class Categoria {
 
     private Boolean alta = true;
 
-   @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria")
     private List<Producto> listaProductos = new ArrayList();
 }

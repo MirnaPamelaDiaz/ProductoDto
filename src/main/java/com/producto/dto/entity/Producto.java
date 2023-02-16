@@ -1,6 +1,5 @@
 package com.producto.dto.entity;
 
-import com.producto.dto.entity.Categoria;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +17,7 @@ import org.hibernate.annotations.Where;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //TODO ver si el @Column(name = "id_producto") afecta a la relacion en la BBD
     // @Column(name = "id_producto")
     private Integer id;
 
